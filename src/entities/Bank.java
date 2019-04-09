@@ -13,19 +13,26 @@ import java.util.ArrayList;
 public class Bank {
     ArrayList <Account> bank;
 
-	public Bank(){
-		this.bank = new ArrayList<>();
-	}
+    public Bank(){
+	this.bank = new ArrayList<>();
+    }
 
-	public void  addAccount(int number, String holder, double balance, double loanLimit, int option){
-		if(option == 1){
-                    bank.add( new savingsAccount( number,  holder,  balance));
-                }else if(option == 2){
-                    bank.add( new checkingAccount( number, holder, balance));
-                }else if(option == 3){
-                    bank.add( new BusinessAccount(loanLimit, number, holder, balance));
-                }
-	}
+    public void  addAccount(int number, String holder, double balance, double loanLimit, int option){
+	if(option == 1){
+            bank.add( new savingsAccount( number,  holder,  balance));
+        }else if(option == 2){
+            bank.add( new checkingAccount( number, holder, balance));
+        }else if(option == 3){
+            bank.add( new BusinessAccount(loanLimit, number, holder, balance));
+        }
+    }
+        
+    public void listAccounts(){
+        for( Account x : bank){
+            System.out.println( x.getNumber() +", "+ x.getHolder() +", $:" + x.getBalance());
+        }
+    }
+        
 
 	
 
